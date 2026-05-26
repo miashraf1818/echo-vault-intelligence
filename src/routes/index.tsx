@@ -67,10 +67,11 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
             Privacy-First Emotional RAG System
           </motion.div>
-          <motion.h1 variants={fadeUp} custom={1} className="text-balance text-4xl font-semibold tracking-tight md:text-6xl lg:text-7xl">
-            Preserving memories through{" "}
-            <span className="text-gradient">ethical intelligence.</span>
-          </motion.h1>
+          <CinematicHeadline
+            prefix="Preserving memories through"
+            highlight="ethical intelligence."
+            className="text-balance text-4xl font-semibold tracking-tight md:text-6xl lg:text-7xl"
+          />
           <motion.p variants={fadeUp} custom={2} className="mx-auto mt-6 max-w-2xl text-pretty text-base text-muted-foreground md:text-lg">
             EchoVault AI transforms conversations, voice notes, and journals into a secure
             emotional memory system powered by AI — as a companion, not a clone.
