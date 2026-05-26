@@ -8,6 +8,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-shell";
 import { Hero3D } from "@/components/hero-3d";
 import { AmbientParticles } from "@/components/ambient-particles";
+import { CinematicHeadline } from "@/components/cinematic-headline";
 
 export const Route = createFileRoute("/")({
   head: () => ({
