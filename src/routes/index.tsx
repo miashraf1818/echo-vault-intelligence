@@ -73,7 +73,7 @@ function Hero() {
             emotional memory system powered by AI — as a companion, not a clone.
           </motion.p>
           <motion.div variants={fadeUp} custom={3} className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link to="/dashboard" className="group inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-primary)] px-6 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
+            <Link to="/dashboard" className="group inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
               Enter EchoVault <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </Link>
             <a href="#architecture" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/40 px-6 py-3 text-sm font-medium backdrop-blur transition hover:bg-card/70">
@@ -128,7 +128,7 @@ function Trust() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {trust.map((t, i) => (
             <motion.div key={t.title} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }} variants={fadeUp} custom={i} className="glass glow-border group rounded-2xl p-6 transition hover:-translate-y-1 hover:shadow-[var(--shadow-glow)]">
-              <div className="mb-4 grid h-10 w-10 place-items-center rounded-xl bg-[var(--gradient-accent)]">
+              <div className="mb-4 grid h-10 w-10 place-items-center rounded-xl bg-gradient-accent">
                 <t.icon className="h-5 w-5 text-background" />
               </div>
               <h3 className="text-sm font-semibold">{t.title}</h3>
@@ -163,7 +163,7 @@ function HowItWorks() {
             <motion.div key={s.title} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} custom={i} className="relative">
               <div className="glass glow-border rounded-2xl p-6">
                 <div className="mb-4 flex items-center justify-between">
-                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-[var(--gradient-primary)] shadow-[var(--shadow-glow)]">
+                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary shadow-[var(--shadow-glow)]">
                     <s.icon className="h-5 w-5 text-primary-foreground" />
                   </div>
                   <span className="font-mono text-xs text-muted-foreground">0{i + 1}</span>
@@ -201,7 +201,7 @@ function Features() {
             <motion.div key={f.title} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} custom={i % 3} className="glass glow-border group relative overflow-hidden rounded-2xl p-7 transition hover:-translate-y-1 hover:shadow-[var(--shadow-glow)]">
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-violet/20 blur-3xl opacity-0 transition group-hover:opacity-100" />
               <div className="relative">
-                <div className="mb-5 grid h-11 w-11 place-items-center rounded-xl bg-[var(--gradient-accent)]">
+                <div className="mb-5 grid h-11 w-11 place-items-center rounded-xl bg-gradient-accent">
                   <f.icon className="h-5 w-5 text-background" />
                 </div>
                 <h3 className="font-semibold">{f.title}</h3>
@@ -275,12 +275,12 @@ function SampleChat() {
         </div>
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass glow-border mt-12 space-y-4 rounded-3xl p-6 md:p-8">
           <div className="flex justify-end">
-            <div className="max-w-md rounded-2xl rounded-tr-md bg-[var(--gradient-primary)] px-5 py-3 text-sm text-primary-foreground shadow-[var(--shadow-glow)]">
+            <div className="max-w-md rounded-2xl rounded-tr-md bg-gradient-primary px-5 py-3 text-sm text-primary-foreground shadow-[var(--shadow-glow)]">
               I'm stressed about my future.
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[var(--gradient-accent)]">
+            <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-gradient-accent">
               <Sparkles className="h-4 w-4 text-background" />
             </div>
             <div className="max-w-lg rounded-2xl rounded-tl-md border border-border bg-card/60 px-5 py-3.5 text-sm leading-relaxed backdrop-blur">
@@ -326,7 +326,7 @@ function ComingSoon() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {comingSoon.map((f, i) => (
             <motion.div key={f.title} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} custom={i % 4} className="glass glow-border group relative overflow-hidden rounded-2xl p-6 transition hover:-translate-y-1">
-              <div className="absolute inset-0 bg-[var(--gradient-accent)] opacity-0 blur-2xl transition group-hover:opacity-20" />
+              <div className="absolute inset-0 bg-gradient-accent opacity-0 blur-2xl transition group-hover:opacity-20" />
               <div className="relative">
                 <div className="flex items-center justify-between">
                   <div className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-card/60">
@@ -355,8 +355,8 @@ function Founder() {
           <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-violet/20 blur-3xl" />
           <div className="relative grid items-center gap-8 md:grid-cols-[auto_1fr]">
             <div className="relative mx-auto md:mx-0">
-              <div className="absolute -inset-2 rounded-full bg-[var(--gradient-accent)] opacity-60 blur-xl" />
-              <div className="relative grid h-28 w-28 place-items-center rounded-full bg-[var(--gradient-primary)] text-3xl font-semibold text-primary-foreground shadow-[var(--shadow-glow)]">
+              <div className="absolute -inset-2 rounded-full bg-gradient-accent opacity-60 blur-xl" />
+              <div className="relative grid h-28 w-28 place-items-center rounded-full bg-gradient-primary text-3xl font-semibold text-primary-foreground shadow-[var(--shadow-glow)]">
                 MI
               </div>
             </div>
@@ -372,7 +372,7 @@ function Founder() {
                 <p className="text-sm text-muted-foreground">Python Full Stack & AI Engineer</p>
               </div>
               <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
-                <a href="https://mohammed-ikram-ashrafi.in" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-primary)] px-4 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
+                <a href="https://mohammed-ikram-ashrafi.in" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
                   <Sparkles className="h-4 w-4" /> View Portfolio
                 </a>
                 <a href="https://github.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm backdrop-blur transition hover:bg-card">
@@ -409,7 +409,7 @@ function Waitlist() {
             placeholder="you@memory.ai"
             className="flex-1 rounded-xl bg-transparent px-4 py-3 text-sm outline-none placeholder:text-muted-foreground"
           />
-          <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--gradient-primary)] px-5 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.02]">
+          <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.02]">
             Join Waitlist <ArrowRight className="h-4 w-4" />
           </button>
         </form>
@@ -430,7 +430,7 @@ function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-2">
-              <div className="grid h-8 w-8 place-items-center rounded-lg bg-[var(--gradient-accent)]">
+              <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-accent">
                 <Lock className="h-4 w-4 text-background" />
               </div>
               <span className="font-semibold">EchoVault <span className="text-gradient">AI</span></span>

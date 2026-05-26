@@ -9,7 +9,7 @@ export function SiteNav() {
       <div className="mx-auto mt-4 max-w-6xl px-4">
         <div className="glass glow-border flex items-center justify-between rounded-2xl px-5 py-3">
           <Link to="/" className="flex items-center gap-2">
-            <div className="grid h-8 w-8 place-items-center rounded-lg bg-[var(--gradient-accent)] shadow-[var(--shadow-glow)]">
+            <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-accent shadow-[var(--shadow-glow)]">
               <Lock className="h-4 w-4 text-background" />
             </div>
             <span className="font-semibold tracking-tight">
@@ -24,7 +24,7 @@ export function SiteNav() {
           </nav>
           <Link
             to="/waitlist"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--gradient-primary)] px-4 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]"
           >
             Get Access <ArrowRight className="h-3.5 w-3.5" />
           </Link>
