@@ -86,7 +86,7 @@ function Dashboard() {
             <button className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2.5 text-sm backdrop-blur transition hover:bg-card">
               <Filter className="h-4 w-4" /> Filters
             </button>
-            <button className="inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-primary)] px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.02]">
+            <button className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-4 py-2.5 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.02]">
               <Plus className="h-4 w-4" /> Upload memory
             </button>
           </div>
@@ -99,7 +99,7 @@ function Dashboard() {
             placeholder="Search memories semantically — e.g. 'advice about patience'"
             className="flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
           />
-          <Link to="/chat" className="inline-flex items-center gap-1.5 rounded-lg bg-[var(--gradient-accent)] px-3 py-1.5 text-xs font-medium text-background">
+          <Link to="/chat" className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-accent px-3 py-1.5 text-xs font-medium text-background">
             Reflect <ArrowUpRight className="h-3 w-3" />
           </Link>
         </motion.div>
@@ -116,7 +116,7 @@ function Dashboard() {
             >
               <div className="flex items-center justify-between">
                 <span className="text-xs text-muted-foreground">{s.label}</span>
-                <div className="grid h-8 w-8 place-items-center rounded-lg bg-[var(--gradient-accent)]">
+                <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-accent">
                   <s.icon className="h-4 w-4 text-background" />
                 </div>
               </div>
@@ -154,7 +154,7 @@ function Dashboard() {
             <h3 className="text-sm font-semibold">Add to your vault</h3>
             <p className="mt-1 text-xs text-muted-foreground">WhatsApp .txt, journals, voice notes</p>
             <div className="mt-4 flex flex-col items-center justify-center rounded-xl border border-dashed border-border bg-background/40 px-6 py-8 text-center">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[var(--gradient-primary)] shadow-[var(--shadow-glow)]">
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-primary shadow-[var(--shadow-glow)]">
                 <Upload className="h-5 w-5 text-primary-foreground" />
               </div>
               <p className="mt-3 text-sm">Drop files here or click to browse</p>
@@ -186,7 +186,7 @@ function Dashboard() {
               <div className="absolute left-[7px] top-2 bottom-2 w-px bg-border" />
               {timeline.map((t, i) => (
                 <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }} className="relative">
-                  <span className="absolute -left-6 top-1.5 grid h-3.5 w-3.5 place-items-center rounded-full bg-[var(--gradient-accent)] shadow-[var(--shadow-emerald)]" />
+                  <span className="absolute -left-6 top-1.5 grid h-3.5 w-3.5 place-items-center rounded-full bg-gradient-accent shadow-[var(--shadow-emerald)]" />
                   <div className="flex flex-wrap items-center gap-2">
                     <t.icon className="h-3.5 w-3.5 text-violet" />
                     <p className="text-sm font-medium">{t.title}</p>

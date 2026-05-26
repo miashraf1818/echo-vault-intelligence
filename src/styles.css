@@ -133,11 +133,21 @@
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, oklch(0.7 0.2 290 / 0.6), oklch(0.74 0.16 165 / 0.3), transparent);
+    background: linear-gradient(135deg, oklch(0.82 0.13 195 / 0.6), oklch(0.82 0.14 75 / 0.3), transparent);
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
     pointer-events: none;
   }
+}
+
+@utility bg-gradient-primary {
+  background-image: var(--gradient-primary);
+}
+@utility bg-gradient-accent {
+  background-image: var(--gradient-accent);
+}
+@utility bg-gradient-hero {
+  background-image: var(--gradient-hero);
 }
 

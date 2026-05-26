@@ -48,7 +48,7 @@ function Waitlist() {
                 transition={{ delay: 0.1 + i * 0.08 }}
                 className="flex items-start gap-3"
               >
-                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[var(--gradient-accent)] shadow-[var(--shadow-emerald)]">
+                <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-accent shadow-[var(--shadow-emerald)]">
                   <p.icon className="h-4 w-4 text-background" />
                 </div>
                 <div>
@@ -86,7 +86,7 @@ function Waitlist() {
                   />
                   <button
                     type="submit"
-                    className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--gradient-primary)] px-5 py-3.5 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.02]"
+                    className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-primary px-5 py-3.5 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.02]"
                   >
                     Join the waitlist <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
                   </button>
@@ -96,7 +96,7 @@ function Waitlist() {
                 </form>
               ) : (
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="mt-8 rounded-2xl border border-accent/30 bg-accent/5 p-6 text-center">
-                  <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-[var(--gradient-accent)] shadow-[var(--shadow-emerald)]">
+                  <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-gradient-accent shadow-[var(--shadow-emerald)]">
                     <CheckCircle2 className="h-6 w-6 text-background" />
                   </div>
                   <h3 className="mt-4 font-semibold">You're on the list.</h3>

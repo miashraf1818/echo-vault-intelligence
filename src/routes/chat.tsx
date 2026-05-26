@@ -116,12 +116,12 @@ function ChatPage() {
                 className={`flex ${m.role === "user" ? "justify-end" : "items-start gap-3"}`}
               >
                 {m.role === "ai" && (
-                  <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-[var(--gradient-accent)] shadow-[var(--shadow-emerald)]">
+                  <div className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-gradient-accent shadow-[var(--shadow-emerald)]">
                     <Sparkles className="h-4 w-4 text-background" />
                   </div>
                 )}
                 {m.role === "user" ? (
-                  <div className="max-w-md rounded-2xl rounded-tr-md bg-[var(--gradient-primary)] px-5 py-3 text-sm text-primary-foreground shadow-[var(--shadow-glow)]">
+                  <div className="max-w-md rounded-2xl rounded-tr-md bg-gradient-primary px-5 py-3 text-sm text-primary-foreground shadow-[var(--shadow-glow)]">
                     {m.content}
                   </div>
                 ) : (
@@ -144,7 +144,7 @@ function ChatPage() {
           </AnimatePresence>
           {loading && (
             <div className="flex items-start gap-3">
-              <div className="grid h-8 w-8 place-items-center rounded-lg bg-[var(--gradient-accent)]">
+              <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-accent">
                 <Sparkles className="h-4 w-4 text-background" />
               </div>
               <div className="rounded-2xl rounded-tl-md border border-border bg-card/60 px-5 py-3 backdrop-blur">
@@ -187,7 +187,7 @@ function ChatPage() {
             <button
               type="submit"
               disabled={!input.trim() || loading}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--gradient-primary)] text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-105 disabled:opacity-50"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-105 disabled:opacity-50"
             >
               <Send className="h-4 w-4" />
             </button>
