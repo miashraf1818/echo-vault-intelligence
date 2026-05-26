@@ -24,7 +24,7 @@ export function SiteNav() {
           </nav>
           <Link
             to="/waitlist"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-background shadow-[var(--shadow-glow)] transition hover:scale-[1.03] hover:bg-primary/90"
           >
             Get Access <ArrowRight className="h-3.5 w-3.5" />
           </Link>
