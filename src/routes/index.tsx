@@ -359,8 +359,12 @@ function Founder() {
         >
           <div className="grid items-center gap-10 md:grid-cols-[auto_1fr]">
             <div className="mx-auto md:mx-0">
-              <div className="grid h-24 w-24 place-items-center rounded-full border border-zinc-200 bg-zinc-900 text-2xl font-semibold text-zinc-50">
-                MI
+              <div className="h-24 w-24 overflow-hidden rounded-full border border-zinc-200 bg-zinc-100 shadow-[var(--shadow-glow)]">
+                <img
+                  src="/founder.jpg"
+                  alt="Mohammed Ikram Ashrafi"
+                  className="h-full w-full object-cover"
+                />
               </div>
             </div>
             <div className="text-center md:text-left">
