@@ -57,6 +57,7 @@ function Hero() {
     <section id="top" className="relative overflow-hidden pt-40 pb-24 md:pt-48 md:pb-32">
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
       <GradientBackdrop />
+      <AmbientParticles density={42} />
       <Hero3D />
       <div className="relative mx-auto max-w-6xl px-4">
 
