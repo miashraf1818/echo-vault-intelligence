@@ -42,13 +42,13 @@ export function CinematicHeadline({ prefix, highlight, className }: Props) {
   return (
     <h1 ref={ref} className={className}>
       {prefixWords.map((w, i) => (
-        <span key={`p-${i}`} className="word inline-block will-change-transform">
+        <span key={`p-${i}`} className="word inline-block">
           {w}&nbsp;
         </span>
       ))}
       <span className="text-gradient">
         {highlightWords.map((w, i) => (
-          <span key={`h-${i}`} className="word inline-block will-change-transform">
+          <span key={`h-${i}`} className="word inline-block">
             {w}
             {i < highlightWords.length - 1 ? "\u00A0" : ""}
           </span>
