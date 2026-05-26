@@ -35,69 +35,57 @@
   --color-violet: var(--violet);
   --font-display: var(--font-display);
 
-  --animate-float: float 8s ease-in-out infinite;
-  --animate-float-slow: float 12s ease-in-out infinite;
-  --animate-glow: glow 4s ease-in-out infinite;
-  --animate-gradient: gradient-shift 14s ease infinite;
-  --animate-shimmer: shimmer 3s linear infinite;
+  --animate-float: float 10s ease-in-out infinite;
+  --animate-float-slow: float 14s ease-in-out infinite;
+  --animate-glow: glow 6s ease-in-out infinite;
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px) translateX(0px); }
-    50% { transform: translateY(-24px) translateX(12px); }
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
   }
   @keyframes glow {
     0%, 100% { opacity: 0.5; }
-    50% { opacity: 0.9; }
-  }
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+    50% { opacity: 0.75; }
   }
 }
 
 :root {
   --radius: 0.75rem;
-  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  /* Industry-grade ink palette — Linear / Vercel / Arc inspired */
-  --background: oklch(0.14 0.008 240);
-  --foreground: oklch(0.98 0.003 240);
-  --card: oklch(0.18 0.01 240);
-  --card-foreground: oklch(0.98 0.003 240);
-  --popover: oklch(0.18 0.01 240);
-  --popover-foreground: oklch(0.98 0.003 240);
-  --primary: oklch(0.82 0.13 195);              /* refined cyan/teal */
-  --primary-foreground: oklch(0.14 0.008 240);
-  --secondary: oklch(0.22 0.012 240);
-  --secondary-foreground: oklch(0.98 0.003 240);
-  --muted: oklch(0.2 0.008 240);
-  --muted-foreground: oklch(0.68 0.012 240);
-  --accent: oklch(0.82 0.14 75);                /* warm amber */
-  --accent-foreground: oklch(0.14 0.008 240);
-  --destructive: oklch(0.68 0.22 25);
-  --destructive-foreground: oklch(0.98 0.003 240);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 10%);
-  --ring: oklch(0.82 0.13 195);
+  /* Quiet Prestige — Zinc + Cobalt (Vercel / Linear / Stripe) */
+  --background: oklch(0.985 0 0);              /* zinc-50 / warm off-white */
+  --foreground: oklch(0.145 0.005 285);        /* zinc-950 graphite */
+  --card: oklch(1 0 0);                        /* pure white surfaces */
+  --card-foreground: oklch(0.145 0.005 285);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0.005 285);
+  --primary: oklch(0.21 0.006 285);            /* zinc-900 — primary CTA */
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.96 0.002 285);
+  --secondary-foreground: oklch(0.21 0.006 285);
+  --muted: oklch(0.96 0.002 285);
+  --muted-foreground: oklch(0.55 0.012 285);   /* zinc-500 */
+  --accent: oklch(0.52 0.22 264);              /* cobalt #2563EB */
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.91 0.003 285);             /* zinc-200 — hairline */
+  --input: oklch(0.91 0.003 285);
+  --ring: oklch(0.52 0.22 264);
 
-  --emerald: oklch(0.78 0.14 165);
-  --indigo: oklch(0.7 0.13 240);
-  --violet: oklch(0.82 0.13 195);
+  --emerald: oklch(0.6 0.13 160);
+  --indigo: oklch(0.52 0.22 264);
+  --violet: oklch(0.52 0.22 264);
 
-  --gradient-hero: radial-gradient(ellipse at top, oklch(0.3 0.08 200 / 0.4), transparent 60%),
-                    radial-gradient(ellipse at bottom right, oklch(0.35 0.1 75 / 0.18), transparent 55%),
-                    linear-gradient(180deg, oklch(0.14 0.008 240), oklch(0.11 0.008 240));
-  --gradient-primary: linear-gradient(135deg, oklch(0.86 0.12 195), oklch(0.78 0.14 210));
-  --gradient-accent: linear-gradient(135deg, oklch(0.82 0.13 195), oklch(0.82 0.14 75));
-  --gradient-card: linear-gradient(135deg, oklch(1 0 0 / 0.05), oklch(1 0 0 / 0.015));
+  --gradient-hero: linear-gradient(180deg, oklch(0.985 0 0), oklch(0.97 0.002 285));
+  --gradient-primary: linear-gradient(180deg, oklch(0.21 0.006 285), oklch(0.16 0.006 285));
+  --gradient-accent: linear-gradient(180deg, oklch(0.21 0.006 285), oklch(0.16 0.006 285));
+  --gradient-card: linear-gradient(180deg, oklch(1 0 0), oklch(0.99 0 0));
 
-  --shadow-glow: 0 0 60px -10px oklch(0.82 0.13 195 / 0.4);
-  --shadow-emerald: 0 0 50px -10px oklch(0.82 0.14 75 / 0.35);
-  --shadow-card: 0 24px 60px -24px oklch(0 0 0 / 0.6);
+  --shadow-glow: 0 1px 2px 0 oklch(0 0 0 / 0.04), 0 8px 24px -12px oklch(0 0 0 / 0.08);
+  --shadow-emerald: 0 1px 2px 0 oklch(0 0 0 / 0.04);
+  --shadow-card: 0 1px 2px 0 oklch(0 0 0 / 0.04), 0 12px 32px -16px oklch(0 0 0 / 0.08);
 }
 
 @layer base {
@@ -108,46 +96,36 @@
     color: var(--foreground);
     font-family: var(--font-display);
     -webkit-font-smoothing: antialiased;
-    font-feature-settings: "cv11", "ss01";
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "cv11", "ss01", "ss03";
+    letter-spacing: -0.011em;
   }
 }
 
+/* Premium surface — hairline border, soft elevation. No frosted blur. */
 @utility glass {
-  background: var(--gradient-card);
-  backdrop-filter: blur(20px);
-  border: 1px solid oklch(1 0 0 / 0.08);
+  background: var(--card);
+  border: 1px solid var(--border);
 }
 
+/* Restrained — solid graphite with a whisper of cobalt warmth */
 @utility text-gradient {
-  background: linear-gradient(135deg, oklch(0.95 0.02 270), oklch(0.75 0.18 290) 50%, oklch(0.78 0.15 165));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--foreground);
 }
 
+/* Replace neon ring with a true hairline */
 @utility glow-border {
-  position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, oklch(0.82 0.13 195 / 0.6), oklch(0.82 0.14 75 / 0.3), transparent);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-    pointer-events: none;
-  }
+  border: 1px solid var(--border);
 }
 
 @utility bg-gradient-primary {
+  background-color: var(--primary);
   background-image: var(--gradient-primary);
 }
 @utility bg-gradient-accent {
+  background-color: var(--primary);
   background-image: var(--gradient-accent);
 }
 @utility bg-gradient-hero {
   background-image: var(--gradient-hero);
 }
-

@@ -1,23 +1,19 @@
 import { Link } from "@tanstack/react-router";
-import { Lock, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function SiteNav() {
   const linkCls = "text-sm text-muted-foreground transition hover:text-foreground";
   const active = { className: "text-foreground font-medium" };
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="mx-auto mt-5 max-w-6xl px-4">
-        <div
-          className="glass glow-border flex items-center justify-between rounded-2xl px-6 py-4 shadow-[0_18px_60px_-30px_oklch(0_0_0/0.7)]"
-          style={{ backdropFilter: "blur(28px) saturate(140%)", WebkitBackdropFilter: "blur(28px) saturate(140%)" }}
-        >
-          <Link to="/" className="flex items-center gap-2.5">
-            <div className="relative grid h-9 w-9 place-items-center rounded-xl bg-primary shadow-[var(--shadow-glow)]">
-              <Lock className="h-4 w-4 text-background" />
-              <span aria-hidden className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/15" />
-            </div>
-            <span className="text-[15px] font-semibold tracking-tight">
-              EchoVault <span className="text-gradient">AI</span>
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-transparent">
+      <div className="mx-auto max-w-6xl px-6">
+        <div className="flex items-center justify-between py-5">
+          <Link to="/" className="flex items-center gap-2">
+            <span className="grid h-6 w-6 place-items-center rounded-md bg-zinc-900">
+              <span className="h-1.5 w-1.5 rounded-[2px] bg-white" />
+            </span>
+            <span className="text-[15px] font-semibold tracking-tight text-foreground">
+              EchoVault <span className="font-normal text-muted-foreground">AI</span>
             </span>
           </Link>
           <nav className="hidden gap-8 md:flex">
@@ -28,9 +24,9 @@ export function SiteNav() {
           </nav>
           <Link
             to="/waitlist"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-background shadow-[var(--shadow-glow)] transition hover:scale-[1.03] hover:bg-primary/90"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-zinc-900 px-3.5 py-2 text-[13px] font-medium text-zinc-50 transition hover:bg-zinc-800"
           >
-            Get Access <ArrowRight className="h-3.5 w-3.5" />
+            Join waitlist <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
       </div>
@@ -40,25 +36,27 @@ export function SiteNav() {
 
 export function SiteFooter() {
   return (
-    <footer className="relative border-t border-border py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 text-xs text-muted-foreground md:flex-row">
-        <p>© 2026 EchoVault AI · Designed & Engineered by Mohammed Ikram Ashrafi</p>
-        <div className="flex gap-4">
-          <a href="https://mohammed-ikram-ashrafi.in" target="_blank" rel="noreferrer" className="hover:text-foreground">mohammed-ikram-ashrafi.in</a>
-          <a href="https://echovaultai.me" target="_blank" rel="noreferrer" className="hover:text-foreground">echovaultai.me</a>
+    <footer className="border-t border-border py-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 text-xs text-muted-foreground md:flex-row">
+        <p>© 2026 EchoVault AI — designed & engineered by Mohammed Ikram Ashrafi</p>
+        <div className="flex gap-5">
+          <a href="https://www.mohammed-ikram-ashrafi.in/" target="_blank" rel="noreferrer" className="hover:text-foreground">Portfolio</a>
+          <a href="https://github.com/miashraf1818" target="_blank" rel="noreferrer" className="hover:text-foreground">GitHub</a>
+          <a href="https://www.linkedin.com/in/mohammed-ikram-ashrafi/" target="_blank" rel="noreferrer" className="hover:text-foreground">LinkedIn</a>
         </div>
       </div>
     </footer>
   );
 }
 
+/** Soft cobalt halo behind hero content — used sparingly. */
 export function PageBackdrop() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div className="absolute -top-40 -left-32 h-[520px] w-[520px] rounded-full blur-[140px] animate-glow" style={{ background: "oklch(0.7 0.2 300 / 0.25)" }} />
-      <div className="absolute top-1/3 -right-32 h-[480px] w-[480px] rounded-full blur-[160px] animate-glow" style={{ background: "oklch(0.6 0.2 270 / 0.25)", animationDelay: "1s" }} />
-      <div className="absolute bottom-0 left-1/3 h-[420px] w-[420px] rounded-full blur-[140px] animate-glow" style={{ background: "oklch(0.74 0.16 165 / 0.18)", animationDelay: "2s" }} />
-      <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)", backgroundSize: "32px 32px" }} />
+      <div
+        className="absolute left-1/2 top-[-10%] h-[640px] w-[640px] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
+        style={{ background: "radial-gradient(closest-side, oklch(0.85 0.12 264 / 0.25), transparent 70%)" }}
+      />
     </div>
   );
 }
