@@ -73,13 +73,13 @@ function Hero() {
             emotional memory system powered by AI — as a companion, not a clone.
           </motion.p>
           <motion.div variants={fadeUp} custom={3} className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link to="/dashboard" className="group inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
+            <Link to="/dashboard" className="group inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-background shadow-[var(--shadow-glow)] transition hover:scale-[1.03] hover:bg-primary/90">
               Enter EchoVault <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </Link>
-            <a href="#architecture" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/40 px-6 py-3 text-sm font-medium backdrop-blur transition hover:bg-card/70">
+            <a href="#architecture" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-6 py-3 text-sm font-medium text-foreground backdrop-blur transition hover:bg-card">
               Explore Architecture
             </a>
-            <Link to="/waitlist" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/40 px-6 py-3 text-sm font-medium backdrop-blur transition hover:bg-card/70">
+            <Link to="/waitlist" className="inline-flex items-center gap-2 rounded-xl border border-accent/40 bg-accent/10 px-6 py-3 text-sm font-medium text-accent backdrop-blur transition hover:bg-accent/20">
               Join Waitlist
             </Link>
           </motion.div>
