@@ -458,9 +458,9 @@ function Footer() {
           <div>
             <h4 className="text-sm font-semibold">Connect</h4>
             <div className="mt-3 flex gap-2">
-              <a href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 transition hover:bg-card"><Github className="h-4 w-4" /></a>
-              <a href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 transition hover:bg-card"><Linkedin className="h-4 w-4" /></a>
-              <a href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 transition hover:bg-card"><Twitter className="h-4 w-4" /></a>
+              <a href="https://github.com/miashraf1818" target="_blank" rel="noreferrer" aria-label="GitHub" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 text-foreground transition hover:bg-card"><Github className="h-4 w-4" /></a>
+              <a href="https://www.linkedin.com/in/mohammed-ikram-ashrafi/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 text-foreground transition hover:bg-card"><Linkedin className="h-4 w-4" /></a>
+              <a href="https://www.mohammed-ikram-ashrafi.in/" target="_blank" rel="noreferrer" aria-label="Portfolio" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 text-foreground transition hover:bg-card"><Sparkles className="h-4 w-4" /></a>
             </div>
           </div>
         </div>
