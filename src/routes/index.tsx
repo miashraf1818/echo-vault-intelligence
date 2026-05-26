@@ -85,6 +85,19 @@ function Hero() {
               Join Waitlist
             </Link>
           </motion.div>
+
+          {/* Trust signal strip */}
+          <motion.div
+            variants={fadeUp}
+            custom={4}
+            className="mx-auto mt-12 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground/80"
+          >
+            <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-primary" /> End-to-End Encrypted</span>
+            <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-accent" /> Ethical AI</span>
+            <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-emerald" /> User-Owned Data</span>
+            <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-indigo" /> Grounded Reflections</span>
+            <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-violet" /> No Human Simulation</span>
+          </motion.div>
         </motion.div>
 
         {/* Floating memory preview */}
