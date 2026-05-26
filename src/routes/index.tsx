@@ -4,7 +4,8 @@ import {
   MessageSquare, Activity, Vault, Sparkles, BarChart3, Mic, Heart, BookOpen,
   Network, Layers, FileText, Github, Linkedin, Twitter, ArrowRight, Cpu, Zap, Eye,
 } from "lucide-react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteNav } from "@/components/site-shell";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,31 +49,6 @@ function FloatingCard({ className, children, delay = 0 }: { className?: string; 
   );
 }
 
-function Nav() {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="mx-auto mt-4 max-w-6xl px-4">
-        <div className="glass glow-border flex items-center justify-between rounded-2xl px-5 py-3">
-          <a href="#top" className="flex items-center gap-2">
-            <div className="grid h-8 w-8 place-items-center rounded-lg bg-[var(--gradient-accent)] shadow-[var(--shadow-glow)]">
-              <Lock className="h-4 w-4 text-background" />
-            </div>
-            <span className="font-semibold tracking-tight">EchoVault <span className="text-gradient">AI</span></span>
-          </a>
-          <nav className="hidden gap-7 text-sm text-muted-foreground md:flex">
-            <a href="#how" className="hover:text-foreground transition">How it works</a>
-            <a href="#features" className="hover:text-foreground transition">Features</a>
-            <a href="#architecture" className="hover:text-foreground transition">Architecture</a>
-            <a href="#waitlist" className="hover:text-foreground transition">Waitlist</a>
-          </nav>
-          <a href="#waitlist" className="inline-flex items-center gap-1.5 rounded-xl bg-[var(--gradient-primary)] px-4 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
-            Get Started <ArrowRight className="h-3.5 w-3.5" />
-          </a>
-        </div>
-      </div>
-    </header>
-  );
-}
 
 function Hero() {
   return (
@@ -94,12 +70,15 @@ function Hero() {
             emotional memory system powered by AI — as a companion, not a clone.
           </motion.p>
           <motion.div variants={fadeUp} custom={3} className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a href="#waitlist" className="group inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-primary)] px-6 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
-              Get Started <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-            </a>
+            <Link to="/dashboard" className="group inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-primary)] px-6 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
+              Enter EchoVault <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+            </Link>
             <a href="#architecture" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/40 px-6 py-3 text-sm font-medium backdrop-blur transition hover:bg-card/70">
-              View Architecture
+              Explore Architecture
             </a>
+            <Link to="/waitlist" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/40 px-6 py-3 text-sm font-medium backdrop-blur transition hover:bg-card/70">
+              Join Waitlist
+            </Link>
           </motion.div>
         </motion.div>
 
