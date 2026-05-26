@@ -56,7 +56,9 @@ function Hero() {
     <section id="top" className="relative overflow-hidden pt-40 pb-24 md:pt-48 md:pb-32">
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
       <GradientBackdrop />
+      <Hero3D />
       <div className="relative mx-auto max-w-6xl px-4">
+
         <motion.div initial="hidden" animate="show" className="mx-auto max-w-3xl text-center">
           <motion.div variants={fadeUp} className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3.5 py-1.5 text-xs text-muted-foreground backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
