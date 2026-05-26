@@ -40,7 +40,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 text-xs text-muted-foreground md:flex-row">
         <p>© 2026 EchoVault AI · Designed & Engineered by Mohammed Ikram Ashrafi</p>
         <div className="flex gap-4">
-          <a href="https://www.mohammed-ikram-ashrafi.in" target="_blank" rel="noreferrer" className="hover:text-foreground">Portfolio</a>
+          <a href="https://mohammed-ikram-ashrafi.in" target="_blank" rel="noreferrer" className="hover:text-foreground">mohammed-ikram-ashrafi.in</a>
           <a href="https://echovaultai.me" target="_blank" rel="noreferrer" className="hover:text-foreground">echovaultai.me</a>
         </div>
       </div>
