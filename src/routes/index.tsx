@@ -409,7 +409,7 @@ function Waitlist() {
             placeholder="you@memory.ai"
             className="flex-1 rounded-xl bg-transparent px-4 py-3 text-sm outline-none placeholder:text-muted-foreground"
           />
-          <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.02]">
+          <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-background shadow-[var(--shadow-glow)] transition hover:scale-[1.02] hover:bg-primary/90">
             Join Waitlist <ArrowRight className="h-4 w-4" />
           </button>
         </form>
