@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-shell";
+import { Hero3D } from "@/components/hero-3d";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -55,7 +56,9 @@ function Hero() {
     <section id="top" className="relative overflow-hidden pt-40 pb-24 md:pt-48 md:pb-32">
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
       <GradientBackdrop />
+      <Hero3D />
       <div className="relative mx-auto max-w-6xl px-4">
+
         <motion.div initial="hidden" animate="show" className="mx-auto max-w-3xl text-center">
           <motion.div variants={fadeUp} className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-3.5 py-1.5 text-xs text-muted-foreground backdrop-blur">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
@@ -369,10 +372,13 @@ function Founder() {
                 <p className="text-sm text-muted-foreground">Python Full Stack & AI Engineer</p>
               </div>
               <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
-                <a href="#" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm backdrop-blur transition hover:bg-card">
+                <a href="https://mohammed-ikram-ashrafi.in" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-[var(--gradient-primary)] px-4 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
+                  <Sparkles className="h-4 w-4" /> View Portfolio
+                </a>
+                <a href="https://github.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm backdrop-blur transition hover:bg-card">
                   <Github className="h-4 w-4" /> GitHub
                 </a>
-                <a href="#" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm backdrop-blur transition hover:bg-card">
+                <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm backdrop-blur transition hover:bg-card">
                   <Linkedin className="h-4 w-4" /> LinkedIn
                 </a>
               </div>
