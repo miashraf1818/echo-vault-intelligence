@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-shell";
+import { Hero3D } from "@/components/hero-3d";
 
 export const Route = createFileRoute("/")({
   head: () => ({
