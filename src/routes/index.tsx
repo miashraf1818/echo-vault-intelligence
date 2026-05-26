@@ -488,12 +488,12 @@ function Index() {
       <main>
         <Hero />
         <Trust />
+        <Founder />
         <HowItWorks />
         <Features />
         <Architecture />
         <SampleChat />
         <ComingSoon />
-        <Founder />
         <WaitlistCTA />
       </main>
       <Footer />
