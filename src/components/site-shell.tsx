@@ -6,17 +6,21 @@ export function SiteNav() {
   const active = { className: "text-foreground font-medium" };
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className="mx-auto mt-4 max-w-6xl px-4">
-        <div className="glass glow-border flex items-center justify-between rounded-2xl px-5 py-3">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-accent shadow-[var(--shadow-glow)]">
+      <div className="mx-auto mt-5 max-w-6xl px-4">
+        <div
+          className="glass glow-border flex items-center justify-between rounded-2xl px-6 py-4 shadow-[0_18px_60px_-30px_oklch(0_0_0/0.7)]"
+          style={{ backdropFilter: "blur(28px) saturate(140%)", WebkitBackdropFilter: "blur(28px) saturate(140%)" }}
+        >
+          <Link to="/" className="flex items-center gap-2.5">
+            <div className="relative grid h-9 w-9 place-items-center rounded-xl bg-primary shadow-[var(--shadow-glow)]">
               <Lock className="h-4 w-4 text-background" />
+              <span aria-hidden className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/15" />
             </div>
-            <span className="font-semibold tracking-tight">
+            <span className="text-[15px] font-semibold tracking-tight">
               EchoVault <span className="text-gradient">AI</span>
             </span>
           </Link>
-          <nav className="hidden gap-7 md:flex">
+          <nav className="hidden gap-8 md:flex">
             <Link to="/" className={linkCls} activeOptions={{ exact: true }} activeProps={active}>Home</Link>
             <Link to="/dashboard" className={linkCls} activeProps={active}>Dashboard</Link>
             <Link to="/chat" className={linkCls} activeProps={active}>Reflect</Link>
@@ -24,7 +28,7 @@ export function SiteNav() {
           </nav>
           <Link
             to="/waitlist"
-            className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-background shadow-[var(--shadow-glow)] transition hover:scale-[1.03] hover:bg-primary/90"
+            className="inline-flex items-center gap-1.5 rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-background shadow-[var(--shadow-glow)] transition hover:scale-[1.03] hover:bg-primary/90"
           >
             Get Access <ArrowRight className="h-3.5 w-3.5" />
           </Link>

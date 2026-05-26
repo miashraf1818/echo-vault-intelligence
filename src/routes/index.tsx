@@ -7,6 +7,7 @@ import {
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site-shell";
 import { Hero3D } from "@/components/hero-3d";
+import { AmbientParticles } from "@/components/ambient-particles";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -56,6 +57,7 @@ function Hero() {
     <section id="top" className="relative overflow-hidden pt-40 pb-24 md:pt-48 md:pb-32">
       <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
       <GradientBackdrop />
+      <AmbientParticles density={42} />
       <Hero3D />
       <div className="relative mx-auto max-w-6xl px-4">
 
@@ -82,6 +84,19 @@ function Hero() {
             <Link to="/waitlist" className="inline-flex items-center gap-2 rounded-xl border border-accent/40 bg-accent/10 px-6 py-3 text-sm font-medium text-accent backdrop-blur transition hover:bg-accent/20">
               Join Waitlist
             </Link>
+          </motion.div>
+
+          {/* Trust signal strip */}
+          <motion.div
+            variants={fadeUp}
+            custom={4}
+            className="mx-auto mt-12 flex max-w-3xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-muted-foreground/80"
+          >
+            <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-primary" /> End-to-End Encrypted</span>
+            <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-accent" /> Ethical AI</span>
+            <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-emerald" /> User-Owned Data</span>
+            <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-indigo" /> Grounded Reflections</span>
+            <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-violet" /> No Human Simulation</span>
           </motion.div>
         </motion.div>
 
