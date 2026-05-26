@@ -73,13 +73,13 @@ function Hero() {
             emotional memory system powered by AI — as a companion, not a clone.
           </motion.p>
           <motion.div variants={fadeUp} custom={3} className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link to="/dashboard" className="group inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
+            <Link to="/dashboard" className="group inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-background shadow-[var(--shadow-glow)] transition hover:scale-[1.03] hover:bg-primary/90">
               Enter EchoVault <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </Link>
-            <a href="#architecture" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/40 px-6 py-3 text-sm font-medium backdrop-blur transition hover:bg-card/70">
+            <a href="#architecture" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-6 py-3 text-sm font-medium text-foreground backdrop-blur transition hover:bg-card">
               Explore Architecture
             </a>
-            <Link to="/waitlist" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/40 px-6 py-3 text-sm font-medium backdrop-blur transition hover:bg-card/70">
+            <Link to="/waitlist" className="inline-flex items-center gap-2 rounded-xl border border-accent/40 bg-accent/10 px-6 py-3 text-sm font-medium text-accent backdrop-blur transition hover:bg-accent/20">
               Join Waitlist
             </Link>
           </motion.div>
@@ -369,16 +369,16 @@ function Founder() {
               </p>
               <div className="mt-5">
                 <p className="font-semibold">Built by Mohammed Ikram Ashrafi</p>
-                <p className="text-sm text-muted-foreground">Python Full Stack & AI Engineer</p>
+                <p className="text-sm text-muted-foreground">AI systems & backend engineer — RAG architectures, FastAPI systems, scalable AI infrastructure, emotional intelligence systems.</p>
               </div>
               <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
-                <a href="https://mohammed-ikram-ashrafi.in" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
+                <a href="https://www.mohammed-ikram-ashrafi.in/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-background shadow-[var(--shadow-glow)] transition hover:scale-[1.03] hover:bg-primary/90">
                   <Sparkles className="h-4 w-4" /> View Portfolio
                 </a>
-                <a href="https://github.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm backdrop-blur transition hover:bg-card">
+                <a href="https://github.com/miashraf1818" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm text-foreground backdrop-blur transition hover:bg-card">
                   <Github className="h-4 w-4" /> GitHub
                 </a>
-                <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm backdrop-blur transition hover:bg-card">
+                <a href="https://www.linkedin.com/in/mohammed-ikram-ashrafi/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm text-foreground backdrop-blur transition hover:bg-card">
                   <Linkedin className="h-4 w-4" /> LinkedIn
                 </a>
               </div>
@@ -409,7 +409,7 @@ function Waitlist() {
             placeholder="you@memory.ai"
             className="flex-1 rounded-xl bg-transparent px-4 py-3 text-sm outline-none placeholder:text-muted-foreground"
           />
-          <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.02]">
+          <button className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-background shadow-[var(--shadow-glow)] transition hover:scale-[1.02] hover:bg-primary/90">
             Join Waitlist <ArrowRight className="h-4 w-4" />
           </button>
         </form>
@@ -458,9 +458,9 @@ function Footer() {
           <div>
             <h4 className="text-sm font-semibold">Connect</h4>
             <div className="mt-3 flex gap-2">
-              <a href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 transition hover:bg-card"><Github className="h-4 w-4" /></a>
-              <a href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 transition hover:bg-card"><Linkedin className="h-4 w-4" /></a>
-              <a href="#" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 transition hover:bg-card"><Twitter className="h-4 w-4" /></a>
+              <a href="https://github.com/miashraf1818" target="_blank" rel="noreferrer" aria-label="GitHub" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 text-foreground transition hover:bg-card"><Github className="h-4 w-4" /></a>
+              <a href="https://www.linkedin.com/in/mohammed-ikram-ashrafi/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 text-foreground transition hover:bg-card"><Linkedin className="h-4 w-4" /></a>
+              <a href="https://www.mohammed-ikram-ashrafi.in/" target="_blank" rel="noreferrer" aria-label="Portfolio" className="grid h-9 w-9 place-items-center rounded-lg border border-border bg-card/40 text-foreground transition hover:bg-card"><Sparkles className="h-4 w-4" /></a>
             </div>
           </div>
         </div>
