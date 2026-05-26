@@ -369,16 +369,16 @@ function Founder() {
               </p>
               <div className="mt-5">
                 <p className="font-semibold">Built by Mohammed Ikram Ashrafi</p>
-                <p className="text-sm text-muted-foreground">Python Full Stack & AI Engineer</p>
+                <p className="text-sm text-muted-foreground">AI systems & backend engineer — RAG architectures, FastAPI systems, scalable AI infrastructure, emotional intelligence systems.</p>
               </div>
               <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
-                <a href="https://mohammed-ikram-ashrafi.in" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-[var(--shadow-glow)] transition hover:scale-[1.03]">
+                <a href="https://www.mohammed-ikram-ashrafi.in/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-background shadow-[var(--shadow-glow)] transition hover:scale-[1.03] hover:bg-primary/90">
                   <Sparkles className="h-4 w-4" /> View Portfolio
                 </a>
-                <a href="https://github.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm backdrop-blur transition hover:bg-card">
+                <a href="https://github.com/miashraf1818" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm text-foreground backdrop-blur transition hover:bg-card">
                   <Github className="h-4 w-4" /> GitHub
                 </a>
-                <a href="https://linkedin.com/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm backdrop-blur transition hover:bg-card">
+                <a href="https://www.linkedin.com/in/mohammed-ikram-ashrafi/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-card/60 px-4 py-2 text-sm text-foreground backdrop-blur transition hover:bg-card">
                   <Linkedin className="h-4 w-4" /> LinkedIn
                 </a>
               </div>
