@@ -67,6 +67,10 @@ export function Hero3D() {
           <Orbit radius={3.2} speed={0.3} color="#a78bfa" size={0.035} />
           <Stars radius={40} depth={30} count={1200} factor={3} fade speed={0.8} />
         </Suspense>
+        <EffectComposer enableNormalPass={false}>
+          <Bloom intensity={0.45} luminanceThreshold={0.55} luminanceSmoothing={0.9} mipmapBlur />
+          <Vignette eskil={false} offset={0.15} darkness={0.55} />
+        </EffectComposer>
         <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.6} enableRotate={false} />
       </Canvas>
     </div>
