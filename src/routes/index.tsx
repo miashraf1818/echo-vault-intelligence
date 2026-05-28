@@ -485,6 +485,103 @@ function Footer() {
   );
 }
 
+function TryDemoCTA() {
+  return (
+    <section className="border-t border-zinc-200 py-24 md:py-32">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-white p-6 sm:p-10 md:p-14"
+        >
+          {/* Subtle cobalt halo */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full opacity-40 blur-3xl"
+            style={{
+              background:
+                "radial-gradient(closest-side, oklch(0.85 0.12 264 / 0.35), transparent 70%)",
+            }}
+          />
+          <div className="relative grid gap-10 md:grid-cols-[1.3fr_1fr] md:items-center">
+            <div className="text-center md:text-left">
+              <span className="text-[12px] font-medium uppercase tracking-[0.16em] text-zinc-500">
+                See it in action
+              </span>
+              <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-zinc-950 md:text-4xl">
+                Try the live demo.
+              </h2>
+              <p className="mt-4 text-pretty text-[15px] leading-relaxed text-zinc-500 md:text-[16px]">
+                Watch the EchoVault pipeline run end-to-end on synthetic sample
+                data, or upload your own WhatsApp export. Real chunks, real
+                citations, no signup.
+              </p>
+
+              <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:items-stretch md:items-start md:justify-start">
+                <Link
+                  to="/demo"
+                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-zinc-900 px-5 py-3 text-[14px] font-medium text-zinc-50 transition hover:bg-zinc-800 sm:w-auto"
+                >
+                  Try the demo <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+                <Link
+                  to="/dashboard"
+                  className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-5 py-3 text-[14px] font-medium text-zinc-900 transition hover:bg-zinc-50 sm:w-auto"
+                >
+                  Enter the vault <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+
+              <ul className="mt-7 grid gap-y-2 text-[13px] text-zinc-600 sm:grid-cols-2">
+                {[
+                  "Live Temporal Emotional RAG",
+                  "13 seeded memory chunks",
+                  "Grounded, cited reflections",
+                  "Ephemeral 1-hour sessions",
+                ].map((s) => (
+                  <li
+                    key={s}
+                    className="inline-flex items-center justify-center gap-2 sm:justify-start"
+                  >
+                    <Check className="h-3 w-3 text-[oklch(0.52_0.22_264)]" /> {s}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Visual stack — collapses to a tighter mobile preview */}
+            <div className="hidden md:block">
+              <div className="relative">
+                <div className="rounded-xl border border-zinc-200 bg-zinc-50/60 p-5">
+                  <div className="mb-3 flex items-center gap-2 text-[11px] uppercase tracking-wider text-zinc-500">
+                    <Sparkles className="h-3 w-3" /> Reflective · Mar 2024
+                  </div>
+                  <p className="text-[14px] leading-relaxed text-zinc-800">
+                    "Doubt is part of growing — across these messages, your
+                    growth has come from sitting with uncertainty, not running
+                    from it."
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-1.5 text-[10px] text-zinc-500">
+                    <span className="rounded-md border border-zinc-200 bg-white px-2 py-1">
+                      WhatsApp · 92%
+                    </span>
+                    <span className="rounded-md border border-zinc-200 bg-white px-2 py-1">
+                      Journal · 81%
+                    </span>
+                  </div>
+                </div>
+                <div className="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-xl border border-zinc-200 bg-zinc-100" />
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -493,6 +590,7 @@ function Index() {
         <Hero />
         <Trust />
         <Founder />
+        <TryDemoCTA />
         <HowItWorks />
         <Features />
         <Architecture />

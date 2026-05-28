@@ -294,13 +294,13 @@ function DemoPage() {
       <PageBackdrop />
       <SiteNav />
 
-      <main className="mx-auto flex w-full max-w-5xl flex-col px-4 pt-28 pb-20 sm:px-6 md:pt-32">
+      <main className="mx-auto flex w-full max-w-5xl flex-col px-4 pt-24 pb-16 sm:px-6 sm:pt-28 md:pt-32">
         {/* ---------------------------------------------------------------
          * Step 1 — Initialize
          * --------------------------------------------------------------- */}
         <section
           aria-label="Step 1: Initialize"
-          className="flex flex-col gap-10"
+          className="flex flex-col gap-8 sm:gap-10"
         >
           <DemoHero
             onTrySample={onTrySample}
@@ -344,7 +344,7 @@ function DemoPage() {
          * --------------------------------------------------------------- */}
         {showExplore && (
           <>
-            <div className="my-16 md:my-20">
+            <div className="my-12 sm:my-16 md:my-20">
               <SectionDivider />
             </div>
             <motion.section
@@ -402,7 +402,7 @@ function DemoPage() {
          * --------------------------------------------------------------- */}
         {showReflect && (
           <>
-            <div className="my-16 md:my-20">
+            <div className="my-12 sm:my-16 md:my-20">
               <SectionDivider />
             </div>
             <motion.section

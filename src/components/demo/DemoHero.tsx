@@ -46,7 +46,7 @@ export function DemoHero({
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.15, duration: 0.5 }}
-        className="mt-3 text-4xl font-semibold tracking-tight md:text-5xl"
+        className="mt-3 text-balance text-3xl font-semibold tracking-tight sm:text-4xl md:text-5xl"
       >
         See EchoVault AI in action.
       </motion.h1>
