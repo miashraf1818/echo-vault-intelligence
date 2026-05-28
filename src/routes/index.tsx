@@ -3,9 +3,12 @@ import {
   Shield, Database, Trash2, UserCheck, Upload, Brain, Search, MessageCircle,
   MessageSquare, Activity, Vault, Sparkles, BarChart3, Mic, Heart, BookOpen,
   Layers, Github, Linkedin, ArrowRight, ArrowUpRight, Cpu, Eye, Check, Lock,
+  Loader2,
 } from "lucide-react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState, type FormEvent } from "react";
 import { SiteNav } from "@/components/site-shell";
+import { joinWaitlist, isValidEmail, WaitlistError } from "@/services/waitlist";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,18 +27,170 @@ const fadeUp = {
   show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] as const } }),
 };
 
+/* ─────────────────────────  WAITLIST INLINE FORM  ─────────────────────────
+   Shared between the hero and the bottom CTA. Real submission to Formspree
+   via the joinWaitlist service. Mobile-first sizing — touch target is
+   12 (h-12) on phones and 11 on sm+ to feel native, not cramped.
+*/
+
+interface WaitlistInlineFormProps {
+  /** A short label that goes into the Formspree dashboard so we can tell
+   * which button on the page produced the signup. */
+  source: string;
+  /** Optional class applied to the outer form element. */
+  className?: string;
+}
+
+const STORAGE_KEY = "evd:waitlist_signup_email";
+
+function WaitlistInlineForm({ source, className = "" }: WaitlistInlineFormProps) {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [savedEmail, setSavedEmail] = useState<string | null>(null);
+
+  // On mount, hydrate "already signed up" state from localStorage so users
+  // who already joined see the confirmation immediately on return visits.
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (stored && isValidEmail(stored)) {
+      setSavedEmail(stored);
+      setStatus("success");
+    }
+  }, []);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setErrorMessage(null);
+
+    if (!isValidEmail(email)) {
+      setStatus("error");
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    setStatus("submitting");
+    try {
+      await joinWaitlist(email, { source });
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem(STORAGE_KEY, email.trim());
+      }
+      setSavedEmail(email.trim());
+      setStatus("success");
+    } catch (err) {
+      setStatus("error");
+      if (err instanceof WaitlistError) {
+        setErrorMessage(err.message);
+      } else {
+        setErrorMessage("Something went wrong. Please try again.");
+      }
+    }
+  }
+
+  function handleReset() {
+    if (typeof window !== "undefined") {
+      window.localStorage.removeItem(STORAGE_KEY);
+    }
+    setSavedEmail(null);
+    setEmail("");
+    setStatus("idle");
+    setErrorMessage(null);
+  }
+
+  if (status === "success" && savedEmail) {
+    return (
+      <div
+        className={`mx-auto flex max-w-md flex-col items-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-4 text-center sm:flex-row sm:items-start sm:text-left ${className}`}
+        role="status"
+      >
+        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-emerald-50 text-emerald-600">
+          <Check className="h-4 w-4" strokeWidth={2.5} />
+        </span>
+        <div className="min-w-0 flex-1">
+          <p className="text-sm font-medium text-zinc-950">You're on the list.</p>
+          <p className="mt-0.5 break-all text-[12px] text-zinc-500">{savedEmail}</p>
+        </div>
+        <button
+          type="button"
+          onClick={handleReset}
+          className="text-[12px] text-zinc-500 underline-offset-4 transition hover:text-zinc-900 hover:underline"
+        >
+          Use a different email
+        </button>
+      </div>
+    );
+  }
+
+  const isSubmitting = status === "submitting";
+  const showError = status === "error" && errorMessage;
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      aria-describedby={showError ? "waitlist-error" : undefined}
+      className={`mx-auto flex w-full max-w-md flex-col gap-2 sm:flex-row ${className}`}
+    >
+      <input
+        type="email"
+        required
+        disabled={isSubmitting}
+        value={email}
+        onChange={(e) => {
+          setEmail(e.target.value);
+          if (status === "error") {
+            setStatus("idle");
+            setErrorMessage(null);
+          }
+        }}
+        placeholder="you@email.com"
+        aria-invalid={showError ? true : undefined}
+        aria-label="Email address"
+        autoComplete="email"
+        inputMode="email"
+        className="h-12 min-w-0 flex-1 rounded-lg border border-zinc-200 bg-white px-4 text-[15px] text-zinc-950 outline-none transition placeholder:text-zinc-400 focus:border-zinc-400 focus:ring-2 focus:ring-zinc-100 disabled:opacity-60 sm:h-11 sm:text-sm"
+      />
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="inline-flex h-12 w-full items-center justify-center gap-1.5 rounded-lg bg-zinc-900 px-5 text-[15px] font-medium text-zinc-50 transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-70 sm:h-11 sm:w-auto sm:text-sm"
+      >
+        {isSubmitting ? (
+          <>
+            <Loader2 className="h-3.5 w-3.5 animate-spin" /> Joining…
+          </>
+        ) : (
+          <>
+            Join the waitlist <ArrowRight className="h-3.5 w-3.5" />
+          </>
+        )}
+      </button>
+      {showError && (
+        <p
+          id="waitlist-error"
+          role="alert"
+          className="basis-full text-center text-[12px] text-red-600 sm:text-left"
+        >
+          {errorMessage}
+        </p>
+      )}
+    </form>
+  );
+}
+
 /* ─────────────────────────  HERO  ───────────────────────── */
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden pt-36 pb-28 md:pt-44 md:pb-36">
+    <section className="relative overflow-hidden pt-28 pb-20 sm:pt-32 sm:pb-24 md:pt-44 md:pb-36">
       {/* faint cobalt halo */}
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[640px] w-[1100px] -translate-x-1/2 opacity-60 blur-3xl"
         style={{ background: "radial-gradient(closest-side, oklch(0.85 0.12 264 / 0.22), transparent 70%)" }}
       />
-      <div className="mx-auto max-w-4xl px-6 text-center">
+      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
         <motion.a
           href="#features"
           initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
@@ -48,7 +203,7 @@ function Hero() {
 
         <motion.h1
           initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.05 }}
-          className="mt-7 text-balance text-5xl font-semibold tracking-[-0.03em] text-zinc-950 md:text-6xl lg:text-7xl"
+          className="mt-7 text-balance text-4xl font-semibold tracking-[-0.03em] text-zinc-950 sm:text-5xl md:text-6xl lg:text-7xl"
         >
           Preserving memories through{" "}
           <span className="text-zinc-500">ethical AI.</span>
@@ -56,34 +211,22 @@ function Hero() {
 
         <motion.p
           initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.12 }}
-          className="mx-auto mt-6 max-w-2xl text-pretty text-[17px] leading-relaxed text-zinc-500"
+          className="mx-auto mt-6 max-w-2xl text-pretty text-[15px] leading-relaxed text-zinc-500 sm:text-[17px]"
         >
           EchoVault transforms historical conversations, journals, and voice notes into a secure,
           searchable emotional memory system. No deepfakes. No hallucinations. Just your memories, preserved.
         </motion.p>
 
-        <motion.form
-          onSubmit={(e) => e.preventDefault()}
+        <motion.div
           initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
-          className="mx-auto mt-10 flex max-w-md flex-col gap-2 sm:flex-row"
+          className="mt-8 sm:mt-10"
         >
-          <input
-            type="email"
-            required
-            placeholder="you@email.com"
-            className="h-11 flex-1 rounded-lg border border-zinc-200 bg-white px-4 text-sm text-zinc-950 outline-none transition placeholder:text-zinc-400 focus:border-zinc-400 focus:ring-2 focus:ring-zinc-100"
-          />
-          <button
-            type="submit"
-            className="inline-flex h-11 items-center justify-center gap-1.5 rounded-lg bg-zinc-900 px-5 text-sm font-medium text-zinc-50 transition hover:bg-zinc-800"
-          >
-            Join the waitlist <ArrowRight className="h-3.5 w-3.5" />
-          </button>
-        </motion.form>
+          <WaitlistInlineForm source="home-hero" />
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-          className="mt-4 inline-flex items-center gap-1.5 text-[13px] text-zinc-500"
+          className="mt-4 inline-flex items-center gap-1.5 text-[12px] text-zinc-500 sm:text-[13px]"
         >
           <Lock className="h-3 w-3" />
           Privacy-first RAG architecture · You own 100% of your data
@@ -92,7 +235,7 @@ function Hero() {
         {/* secondary actions */}
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] text-zinc-500"
+          className="mt-7 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[12px] text-zinc-500 sm:gap-x-6 sm:text-[13px]"
         >
           <Link to="/dashboard" className="inline-flex items-center gap-1 hover:text-zinc-900">
             Enter EchoVault <ArrowUpRight className="h-3 w-3" />
@@ -109,10 +252,10 @@ function Hero() {
       </div>
 
       {/* Memory preview card — calm, no float */}
-      <div className="mx-auto mt-24 max-w-5xl px-6">
+      <div className="mx-auto mt-16 max-w-5xl px-4 sm:mt-20 sm:px-6 md:mt-24">
         <motion.div
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-          className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-[0_1px_2px_0_oklch(0_0_0/0.04),0_24px_60px_-30px_oklch(0_0_0/0.18)] md:p-8"
+          className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-[0_1px_2px_0_oklch(0_0_0/0.04),0_24px_60px_-30px_oklch(0_0_0/0.18)] sm:p-6 md:p-8"
         >
           <div className="grid gap-4 md:grid-cols-3">
             {[
@@ -406,26 +549,18 @@ function Founder() {
 
 function WaitlistCTA() {
   return (
-    <section id="waitlist" className="border-t border-zinc-200 py-24 md:py-32">
-      <div className="mx-auto max-w-3xl px-6 text-center">
-        <h2 className="text-balance text-4xl font-semibold tracking-[-0.03em] text-zinc-950 md:text-5xl">
+    <section id="waitlist" className="border-t border-zinc-200 py-20 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+        <h2 className="text-balance text-3xl font-semibold tracking-[-0.03em] text-zinc-950 sm:text-4xl md:text-5xl">
           Memories deserve better than <span className="text-zinc-500">being forgotten.</span>
         </h2>
-        <p className="mx-auto mt-5 max-w-xl text-[16px] leading-relaxed text-zinc-500">
+        <p className="mx-auto mt-5 max-w-xl text-[15px] leading-relaxed text-zinc-500 sm:text-[16px]">
           Join the waitlist and help shape the future of ethical memory intelligence.
         </p>
-        <form onSubmit={(e) => e.preventDefault()} className="mx-auto mt-10 flex max-w-md flex-col gap-2 sm:flex-row">
-          <input
-            type="email"
-            required
-            placeholder="you@email.com"
-            className="h-11 flex-1 rounded-lg border border-zinc-200 bg-white px-4 text-sm text-zinc-950 outline-none transition placeholder:text-zinc-400 focus:border-zinc-400 focus:ring-2 focus:ring-zinc-100"
-          />
-          <button className="inline-flex h-11 items-center justify-center gap-1.5 rounded-lg bg-zinc-900 px-5 text-sm font-medium text-zinc-50 transition hover:bg-zinc-800">
-            Join the waitlist <ArrowRight className="h-3.5 w-3.5" />
-          </button>
-        </form>
-        <p className="mt-4 text-[13px] text-zinc-500">No spam, ever. One launch note when access opens.</p>
+        <div className="mt-8 sm:mt-10">
+          <WaitlistInlineForm source="home-cta-bottom" />
+        </div>
+        <p className="mt-4 text-[12px] text-zinc-500 sm:text-[13px]">No spam, ever. One launch note when access opens.</p>
       </div>
     </section>
   );

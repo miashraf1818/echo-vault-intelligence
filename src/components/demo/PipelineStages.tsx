@@ -240,7 +240,9 @@ function StageCell({
             state === "pending" ? "text-muted-foreground" : "text-foreground",
           )}
         >
-          {descriptor.label}
+          {/* On narrow viewports use the short label so it never truncates */}
+          <span className="sm:hidden">{descriptor.shortLabel}</span>
+          <span className="hidden sm:inline">{descriptor.label}</span>
         </p>
         <p className="mt-0.5 hidden text-[11px] leading-snug text-muted-foreground sm:block">
           {descriptor.description}
