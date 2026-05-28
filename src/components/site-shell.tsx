@@ -20,6 +20,7 @@ export function SiteNav() {
             <Link to="/" className={linkCls} activeOptions={{ exact: true }} activeProps={active}>Home</Link>
             <Link to="/dashboard" className={linkCls} activeProps={active}>Dashboard</Link>
             <Link to="/chat" className={linkCls} activeProps={active}>Reflect</Link>
+            <Link to="/demo" className={linkCls} activeProps={active}>Demo</Link>
             <Link to="/waitlist" className={linkCls} activeProps={active}>Waitlist</Link>
           </nav>
           <Link
