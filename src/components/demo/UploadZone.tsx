@@ -41,8 +41,16 @@ export function UploadZone() {
   const [error, setError] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  // Track whether THIS component instance has actually started an upload.
+  // The React Query mutation cache persists across page navigations and
+  // re-renders, so without this flag a stale error from an earlier visit
+  // (e.g. an aborted upload before a session existed) would render
+  // immediately on mount. We only surface mutation errors after the user
+  // has explicitly handed us a file.
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   function validateAndUpload(file: File): void {
+    setHasInteracted(true);
     if (!isTxtFile(file)) {
       setError("Only .txt files are accepted");
       setSelectedFile(null);
@@ -87,14 +95,19 @@ export function UploadZone() {
   }
 
   const isPending = upload.isPending;
-  // Translate the API client's typed error into a user-facing string.
+  // Translate the API client's typed error into a user-facing string,
+  // but only after the user has actually attempted an upload in this
+  // component's lifetime. This prevents stale mutation-cache errors
+  // from rendering on page mount.
   const mutationErrorMessage =
-    upload.isError && upload.error
+    hasInteracted && upload.isError && upload.error
       ? upload.error.code === "FILE_TOO_LARGE"
         ? "File too large (max 5 MB)"
         : upload.error.code === "INVALID_FILE_FORMAT"
           ? "That file doesn't look like a WhatsApp export"
-          : upload.error.message || "Upload failed. Please try again."
+          : upload.error.code === "MISSING_SESSION"
+            ? "Try with sample data or initialize a session first."
+            : upload.error.message || "Upload failed. Please try again."
       : null;
 
   const displayError = error ?? mutationErrorMessage;
