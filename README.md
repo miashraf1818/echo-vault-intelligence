@@ -18,6 +18,35 @@
 
 ---
 
+## See it in action
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/echovault-hero.png" alt="EchoVault marketing home — Preserving memories through ethical AI" /></td>
+    <td width="50%"><img src="docs/screenshots/echovault-principles.png" alt="Five ethical commitments — privacy first, encryption, user-owned, no impersonation, right to delete" /></td>
+  </tr>
+  <tr>
+    <td><sub><b>Marketing site.</b> Premium, calm, mobile-first.</sub></td>
+    <td><sub><b>Five ethical commitments.</b> Privacy, encryption, ownership, no impersonation, right to delete.</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/screenshots/echovault-demo.png" alt="Live demo route — see EchoVault AI in action" /></td>
+    <td width="50%"><img src="docs/screenshots/echovault-dashboard.png" alt="Memory dashboard — semantic search, emotional timeline, AES-256 encrypted vault" /></td>
+  </tr>
+  <tr>
+    <td><sub><b>Live demo.</b> Three-step guided pipeline (Initialize → Explore → Reflect) running the real backend.</sub></td>
+    <td><sub><b>Memory dashboard.</b> Semantic search, emotional timeline, AES-256 encrypted vault.</sub></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="docs/screenshots/echovault-founder.png" alt="A companion, not a clone — founder note" width="70%" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><sub><b>A companion, not a clone.</b> Built solo by Mohammed Ikram Ashrafi.</sub></td>
+  </tr>
+</table>
+
+---
+
 ## What is this
 
 The TanStack Start frontend for **EchoVault AI** — an emotional memory intelligence platform. Hosts the marketing site, the analytical companion chat preview, the live `/demo` route that runs the real backend pipeline end-to-end, and the waitlist.
