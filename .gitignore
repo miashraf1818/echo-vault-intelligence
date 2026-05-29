@@ -17,6 +17,11 @@ dist-ssr
 *.local
 .vercel/output
 
+# Environment variables (never commit secrets)
+.env
+.env.*
+!.env.example
+
 
 # Wrangler / Cloudflare
 .wrangler/
